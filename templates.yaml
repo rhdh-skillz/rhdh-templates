@@ -1,0 +1,11 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: rhdh-skillz
+  description: A collection of Example Software Templates for Red Hat Developer Hub
+spec:
+  type: url
+  targets:
+    # GitLab Templates
+    - templates/quarkus-on-openshift/template.yaml
