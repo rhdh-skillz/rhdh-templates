@@ -14,7 +14,7 @@ metadata:
     - openshift
     - argocd
 spec:
-  owner: joshuacanter
+  owner: group:superusers
   system: microservices
   type: service
 
