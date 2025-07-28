@@ -7,5 +7,4 @@ metadata:
 spec:
   type: url
   targets:
-    # GitLab Templates
     - templates/quarkus-on-openshift/template.yaml
