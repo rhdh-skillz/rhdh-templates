@@ -9,3 +9,5 @@ https://github.com/rmarting/rhdh-exercises-software-templates/blob/main/template
 https://github.com/rmarting/rhdh-exercises/blob/main/custom-app-config-gitlab/rhdh-app-configmap-11.yaml
 
 https://developers.redhat.com/e-books/developer-portals
+
+https://backstage.io/docs/integrations/github/github-apps

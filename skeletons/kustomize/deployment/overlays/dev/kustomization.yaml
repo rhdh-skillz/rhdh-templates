@@ -1,0 +1,6 @@
+resources:
+  - ../../base
+
+images:
+  - name: CHANGE_ME
+    newName: ${{ values.registryUrl }}/${{ values.namespace }}/${{ values.appName }}:1.0

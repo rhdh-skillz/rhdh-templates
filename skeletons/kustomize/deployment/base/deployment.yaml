@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${{ values.appName }}
+  labels:
+    app: ${{ values.appName }}
+    backstage.io/kubernetes-id: ${{ values.appName }}
+spec:
+  selector:
+    matchLabels:
+      app: ${{ values.appName }}
+  template:
+    metadata:
+      labels:
+        app: ${{ values.appName }}
+        backstage.io/kubernetes-id: ${{ values.appName }}
+    spec:
+      containers:
+        - name: ${{ values.appName }}
+          image: CHANGE_ME
+          ports:
+            - containerPort: ${{ values.port }}
+              name: http
+          livenessProbe:
+            httpGet:
+              port: ${{ values.port }}
+              path: ${{ values.livenessProbe }}
+              scheme: HTTP
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              port: ${{ values.port }}
+              path: ${{ values.readinessProbe }}
+              scheme: HTTP
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          resources:
+            limits:
+              cpu: 1
+              memory: 1024Mi

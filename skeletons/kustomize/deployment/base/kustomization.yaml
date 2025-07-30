@@ -1,0 +1,4 @@
+resources:
+  - deployment.ayml
+  - route.yaml
+  - service.yaml
