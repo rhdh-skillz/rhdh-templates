@@ -7,13 +7,11 @@ metadata:
     github.com/project-slug: ${{ values.orgName }}/${{ values.appName }}
     backstage.io/kubernetes-id: ${{ values.appName }}
     argocd/app-name: ${{ values.appName }}
+    argocd/app-selector: '${{ values.appName }}'
   tags:
-    - spring-boot
+    - quarkus
     - java
     - maven
-    - circleci
-    - renovate
-    - sonarqube
 spec:
   type: service
   owner: superusers
