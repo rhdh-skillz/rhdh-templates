@@ -156,7 +156,7 @@ spec:
         argoInstance: clusterargo
         namespace: ${{ parameters.namespace }}
         repoUrl: https://github.com/${{ parameters.orgName }}/${{ parameters.appName }}-config.git
-        path: 'manifests'
+        path: 'manifests/kustomize/deployment/overlays/dev'
         projectName: default
 
   output:
