@@ -136,7 +136,7 @@ spec:
           repoBranchName: ${{ parameters.repoBranchName }}
         targetPath: ./gitops/manifests
 
-    - id: publish
+    - id: publish-config
       name: Publishing to the Config Code Repository
       action: publish:github
       input:
@@ -152,18 +152,18 @@ spec:
       name: Create ArgoCD Resources
       action: argocd:create-resources
       input:
-        appName: ${{ parameters.appName }}
+        appName: ${{ parameters.appName }}-rhdh
         argoInstance: clusterargo
         namespace: ${{ parameters.namespace }}
-        repoUrl: https://github.com/${{ parameters.orgName }}/${{ parameters.appName }}-config.git
+        repoUrl: ${{ steps.publish-config.output.remoteUrl }}
         path: 'manifests/overlays/dev'
 
   output:
     links:
       - title: Open the Source Code Repository
         url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open the IaC Repository
+        url: ${{ steps.publish-config.output.remoteUrl }}
       - title: Open the Catalog Info Component
         icon: catalog
         entityRef: ${{ steps.register.output.entityRef }}
-      - title: SonarQube project URL
-        url: ${{ steps['create-sonar-project'].output.projectUrl }}
