@@ -8,3 +8,4 @@ spec:
   type: url
   targets:
     - templates/quarkus-on-openshift/template.yaml
+    - templates/argo-onboard/template.yaml

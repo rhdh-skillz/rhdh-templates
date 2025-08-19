@@ -157,7 +157,6 @@ spec:
         namespace: ${{ parameters.namespace }}
         repoUrl: https://github.com/${{ parameters.orgName }}/${{ parameters.appName }}-config.git
         path: 'manifests/overlays/dev'
-        projectName: default
 
   output:
     links:

@@ -1,0 +1,58 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: argo-onboard
+  title: Create an argo app from an existing repo
+  description: Create an argo app from an existing repo
+  tags:
+    - argocd
+spec:
+  owner: group:superusers
+  system: microservices
+  type: service
+
+  parameters:
+    - title: Provide information about the new component
+      required:
+        - appName
+        - namespace
+        - argocdInstance
+        - repoUrl
+        - path
+      properties:
+        appName:
+          title: App name
+          type: string
+          default: quarkus-app-openshift
+        namespace:
+          title: The target namespace on Kubernetes
+          type: string
+          default: demo
+        argocdInstance:
+          title: Name of the argocd instance
+          type: string
+          default: clusterArgo
+        repoUrl:
+          title: The git repo to pull the manifests
+          type: string
+        path:
+          title: The path in the git repo where the manifests reside
+          type: string
+          default: .
+  steps:
+    - id: create-argocd-resources
+      name: Create ArgoCD Resources
+      action: argocd:create-resources
+      input:
+        appName: ${{ parameters.appName }}
+        argoInstance: ${{ parameters.argocdInstance }}
+        namespace: ${{ parameters.namespace }}
+        repoUrl: ${{ parameters.repoUrl }}
+        path: ${{ .parameters.path }}
+
+  output:
+
+    text:
+      - title: More information
+        content: |
+          **Entity URL:** `${{ steps['create-argocd-resources'].output }}`
