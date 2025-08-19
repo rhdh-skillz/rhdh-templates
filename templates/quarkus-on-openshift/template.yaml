@@ -155,9 +155,9 @@ spec:
         appName: ${{ parameters.appName }}-rhdh
         argoInstance: clusterargo
         namespace: ${{ parameters.namespace }}
-        repoUrl: ${{ steps.publish-config.output.remoteUrl }}
+        repoUrl: https://github.com/${{ parameters.orgName }}/${{ parameters.appName }}-config.git
         path: 'manifests/overlays/dev'
-
+https://github.com/rhdh-skillz/this-time-maybe-config.git
   output:
     links:
       - title: Open the Source Code Repository
