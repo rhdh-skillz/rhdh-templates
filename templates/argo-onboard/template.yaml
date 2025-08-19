@@ -48,7 +48,7 @@ spec:
         argoInstance: ${{ parameters.argocdInstance }}
         namespace: ${{ parameters.namespace }}
         repoUrl: ${{ parameters.repoUrl }}
-        path: ${{ .parameters.path }}
+        path: ${{ parameters.path }}
 
   output:
 
