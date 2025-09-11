@@ -6,8 +6,7 @@ metadata:
   annotations:
     github.com/project-slug: ${{ values.orgName }}/${{ values.appName }}
     backstage.io/kubernetes-id: ${{ values.appName }}
-    argocd/app-name: ${{ values.appName }}
-    argocd/app-selector: '${{ values.appName }}'
+    argocd/app-name: ${{ values.appName }}-rhdh
   tags:
     - quarkus
     - java
